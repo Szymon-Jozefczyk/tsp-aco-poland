@@ -32,10 +32,10 @@ def build_distance_df(df, lat='latitude', long='longitude', name='city'):
 
 def tour_length(tour, dist_matrix):
 
-    """Łączna długość trasy [km], wliczając powrót do startu."""
+    """Łączna długość trasy, wliczając powrót do startu."""
 
     total = sum(dist_matrix[tour[i], tour[i + 1]] for i in range(len(tour) - 1))
     # powrót
     total += dist_matrix[tour[-1], tour[0]]
-    
+
     return total
